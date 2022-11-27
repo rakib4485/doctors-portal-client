@@ -6,9 +6,6 @@ const Footer = () => {
     <div>
       <footer
         className="footer px-14"
-        style={{
-          background: `url(${footerImg})`,
-        }}
       >
         <div>
           <span className="footer-title">Services</span>
@@ -32,7 +29,9 @@ const Footer = () => {
         </div>
       </footer>
       <footer className="footer footer-center p-4 my-6 text-base-content">
-        <div>
+        <div style={{
+      backgroundImage: `url(${footerImg})`,
+    }}>
           <p>Copyright © 2022 - All right reserved by </p>
         </div>
       </footer>
