@@ -1,11 +1,13 @@
 import { createBrowserRouter } from "react-router-dom";
 import DashboardLayout from "../../layout/DashboardLayout";
 import Main from "../../layout/Main";
+import About from "../../pages/About/About/About";
 import Appointment from "../../pages/Appointment/Appointment/Appointment";
 import AddDoctor from "../../pages/Dashboard/AddDoctor/AddDoctor";
 import AllUsers from "../../pages/Dashboard/AllUsers/AllUsers";
 import ManageDoctors from "../../pages/Dashboard/ManageDoctors/ManageDoctors";
 import MyAppointment from "../../pages/Dashboard/MyAppointment/MyAppointment";
+import Payment from "../../pages/Dashboard/Payment/Payment";
 import Home from "../../pages/Home/Home/Home";
 import Login from "../../pages/Login/Login";
 import SignUp from "../../pages/SignUp/SignUp";
@@ -24,6 +26,10 @@ const router = createBrowserRouter([
             {
                 path: '/appointment',
                 element: <Appointment></Appointment>
+            },
+            {
+                path: '/about',
+                element: <About></About>
             },
             {
                 path: '/login',
@@ -54,6 +60,11 @@ const router = createBrowserRouter([
             {
                 path: '/dashboard/managedoctors',
                 element: <AdminRoutes><ManageDoctors></ManageDoctors></AdminRoutes>
+            },
+            {
+                path: '/dashboard/payment/:id',
+                element: <AdminRoutes><Payment></Payment></AdminRoutes>,
+                loader: ({params}) => fetch(`https://doctors-portal-server-liard-two.vercel.app/bookings/${params.id}`)
             },
         ]
     }
